@@ -1,0 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+{
+	"name": "Node.js",
+        "build": {
+                "dockerfile": "Dockerfile",
+                // Update 'VARIANT' to pick a Node version: 16, 14, 12.
+                // Append -bullseye or -buster to pin to an OS version.
+                // Use -bullseye variants on local arm64/Apple Silicon.
+                "args": { "VARIANT": "22-bookworm" }
+        },
+	"features": {
+		"ghcr.io/devcontainers-extra/features/quasar-cli:2": {},
+		"ghcr.io/devcontainers-extra/features/vue-cli:2": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"PKief.material-icon-theme",
+				"dannyconnell.make-apps-theme",
+				"mrmlnc.vscode-duplicate",
+				"MisterJ.vue-volar-extention-pack",
+				"dannyconnell.split-html-attributes"
+			]
+		}
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [5173,3000]
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
