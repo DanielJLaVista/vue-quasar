@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h2>{{ appTitle }}</h2>
-    <h3>{{ counterData.title }}</h3>
+    <h3>{{ counterData.title }}:</h3>
     <div>
       <button @click="decreaseCounter(2)" class="btn">--</button>
       <button @click="decreaseCounter(1)" class="btn">-</button>
@@ -21,10 +21,22 @@
 
 <!-- Composition Api with Script Setup-->
 <script setup>
-import { reactive, computed, watch } from 'vue';
+/*
+  imports
+*/
+import { computed, onMounted, reactive, watch } from 'vue';
 
-const appTitle = 'My Ok  Counter App'
+/*
+  app title
+*/
+const appTitle = 'My Ok Counter App'
+onMounted(() => {
+  console.log('Do stuff related to App Title')
+})
 
+/*
+  counter
+*/
 const counterData = reactive({
   count: 0,
   title: 'My Counter'
@@ -47,6 +59,11 @@ const increaseCounter = (amount, e) => {
 const decreaseCounter = amount => {
   counterData.count -= amount;
 }
+
+onMounted(() => {
+  console.log('Do stuff related to Counter')
+})
+
 </script>
 
 <!-- Options Api -->
